@@ -9,14 +9,16 @@
 ```
 -->
 ```html
-<task-list></task-list>
+<task-list name="Steps to get ready" related-resource="#Ffff-fs22-555-fed" tasks='[{"name": "Read the readings.","link": "http://btopro.com/"},{"name": "Create the project."},{"name": "Submit the project"}]'></task-list>
 ```
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/LRNWebComponents/task-list)
 
 # \<task-list\>
+Visual listing of tasks with different design components that is
+OER Schema capable!
 
-A LRN element
+[Video showing this being built out and explained](https://www.youtube.com/watch?v=b_I19aJYIso)
 
 ## Install the Polymer-CLI
 
