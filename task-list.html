@@ -39,6 +39,9 @@ OER Schema capable!
         MaterializeCSSBehaviors.ColorBehaviors,
         SchemaBehaviors.Schema
       ],
+      observers: [
+        '_valueChanged(tasks.*)'
+      ],
       properties: {
         /**
          * Name of this task list
@@ -62,10 +65,18 @@ OER Schema capable!
           notify: true,
         },
       },
+      _valueChanged: function(e) {
+        for (var i in e.base) {
+          for (var j in e.base[i]) {
+            this.notifyPath('tasks.' + i + '.' + j);
+          }
+        }
+      },
       /**
        * Attached to the DOM, now fire.
        */
       attached: function() {
+        // set typeof to supporting material
         this.setAttribute('typeof', 'oer:SupportingMaterial');
         // Establish hax property binding
         let props = {
@@ -122,13 +133,13 @@ OER Schema capable!
                 'description': 'The tasks to be completed',
                 'inputMethod': 'array',
                 'items': {
-                  "name": {
-                    "title": "Name",
-                    "type": "string"
+                  'name': {
+                    'title': 'Name',
+                    'type': 'string'
                   },
-                  "link": {
-                    "title": "Link (optional)",
-                    "type": "string"
+                  'link': {
+                    'title': 'Link',
+                    'type': 'string'
                   }
                 }
               },
